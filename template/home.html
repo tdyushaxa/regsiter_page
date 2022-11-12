@@ -6,6 +6,11 @@
 </head>
 <body>
     <h2>Homepage</h2>
-    <a href="{% url 'register' %}"> register</a>
+    {% if user.is_authenticated %}
+        {{user.username}}
+    {% else %}
+         <a href="{% url 'register' %}"> register</a>
+        <a href="{% url 'login' %}"> login</a>
+    {% endif %}
 </body>
 </html>
